@@ -16,14 +16,14 @@ namespace WebApplication1.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            if (id % 3 == 0)
+            int three = id % 3;
+            int five = id % 5;
+
+            if (three == 0)
             {
-                if (id % 5 == 0)
-                {
-                    return "fishchips";
-                }
-                return "fish";
-            } else if (id % 5 == 0)
+                return five == 0 ? "fishchips" : "fish";
+            } 
+            else if (five == 0)
             {
                 return "ships";
             }
